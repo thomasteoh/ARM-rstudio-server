@@ -1,7 +1,7 @@
 #!/bin/bash
-# This script installs R and builds RStudio Desktop for ARM Chromebooks running debian stretch
+# This script installs R and builds RStudio Server for ARM-based Android phones running Debian jessie
 
-# Install R; Debian stretch has latest version
+# Install R; Debian jessie has version 3.1.1-1
 sudo apt-get update
 sudo apt-get install -y r-base r-base-dev
 
@@ -9,6 +9,7 @@ sudo apt-get install -y r-base r-base-dev
 VERS=v0.99.473
 
 # Download RStudio source
+mkdir ~/Downloads/
 cd ~/Downloads/
 wget -O $VERS https://github.com/rstudio/rstudio/tarball/$VERS
 mkdir ~/Downloads/rstudio-$VERS
@@ -21,10 +22,8 @@ cd ~/Downloads/rstudio-$VERS/dependencies/linux/
 ./install-dependencies-debian --exclude-qt-sdk
 
 # Run common environment preparation scripts
-sudo apt-get install -y git
+sudo apt-get install -y git pandoc libcurl4-openssl-dev
 # No arm build for pandoc, so install outside of common script
-sudo apt-get install -y pandoc
-sudo apt-get install -y libcurl4-openssl-dev
 
 cd ~/Downloads/rstudio-$VERS/dependencies/common/
 #./install-common
@@ -44,7 +43,7 @@ cd ~/Downloads
 wget http://dl.google.com/closure-compiler/compiler-latest.zip
 unzip compiler-latest.zip
 rm COPYING README.md compiler-latest.zip
-sudo mv compiler.jar ~/Downloads/rstudio-$VERS/src/gwt/tools/compiler/compiler.jar
+sudo mv closure-compiler*.jar ~/Downloads/rstudio-$VERS/src/gwt/tools/compiler/compiler.jar
 
 # Configure cmake and build RStudio
 cd ~/Downloads/rstudio-$VERS/
@@ -69,7 +68,7 @@ export LANGUAGE=en_US.UTF-8
 
 # Clean the system of packages used for building
 sudo apt-get autoremove -y cabal-install ghc openjdk-7-jdk pandoc libboost-all-dev
-sudo rm -r -f ~/rstudio-$VERS
+sudo rm -r -f ~/Downloads/rstudio-$VERS
 sudo apt-get autoremove -y
 
 # Start the server

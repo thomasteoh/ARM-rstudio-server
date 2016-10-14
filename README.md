@@ -1,5 +1,5 @@
 # ARM-rstudio-server
-Build script for rstudio-server on an ARM-based Android mobile phone
+Build script for rstudio-server on an ARM-based Android system.
 
 This is built on the excellent work of [dashaub/ARM-RStudio](https://github.com/dashaub/ARM-RStudio) and [jrowen/ARM-rstudio-server](https://github.com/jrowen/ARM-rstudio-server).
 

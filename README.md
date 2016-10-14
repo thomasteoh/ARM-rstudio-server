@@ -21,7 +21,7 @@ After the server has been built and installed, the easiest way to start the serv
 sudo rstudio-server start
 ```
 
-Finally, from a new Chrome tab navigate to `localhost:8787` and log in using your user credendials.
+Finally, from a web browser on your device, navigate to `localhost:8787` and log in using your user credentials. Alternatively, access your RStudio server through the device's network address at port 8787.
 
 ## Contributions
 Please don't hesitate to file an issue if you run into problems, and pull requests are welcome.

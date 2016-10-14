@@ -1,10 +1,10 @@
-# ARM-rstudio-server (for Android devices)
+# ARM-rstudio-server
 Build script for rstudio-server on an ARM-based Android system.
 
 This is built on the excellent work of [dashaub/ARM-RStudio](https://github.com/dashaub/ARM-RStudio) and [jrowen/ARM-rstudio-server](https://github.com/jrowen/ARM-rstudio-server).
 
 ## Build
-This script has been used to successfully build RStudio Server on a Motorola Moto X (2013) (ARMv7) running Debian 8.6 (jessie) via a chroot environment created by [Linux Deploy](https://github.com/meefik/linuxdeploy). A fully installed chroot instance of a Linux installation should be installed on your device (requires root). The commands below can be used to build the server
+This script has been used to successfully build RStudio Server on a Motorola Moto X (2013) (ARMv7) running Debian 8.6 (jessie) via a chroot environment created by [Linux Deploy](https://github.com/meefik/linuxdeploy). A fully installed chroot instance of a Linux installation should be installed on your device (requires root). The command below can be used to build the server
 
 ```
 sudo ./build_rstudio.sh
@@ -15,7 +15,7 @@ The build may take several hours to complete. It is recommended to keep the scre
 The `VERS` variable in the script can be updated to build different versions of the server.  The latest version number and be found on the rstudio server [download page](https://www.rstudio.com/products/rstudio/download-server/), and note that this will likely differ from the latest desktop version.
 
 ## Launching RStudio Server
-After the server has been built and installed, the easiest way to start the server is using the commands below
+After the server has been built and installed, the easiest way to start the server is using the command below
 
 ```
 sudo rstudio-server start

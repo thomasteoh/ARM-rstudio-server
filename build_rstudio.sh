@@ -20,6 +20,7 @@ rm ~/Downloads/$VERS
 sudo apt-get install -y openjdk-7-jdk
 cd ~/Downloads/rstudio-$VERS/dependencies/linux/
 ./install-dependencies-debian --exclude-qt-sdk
+# Don't need openjdk-6-jdk
 
 # Run common environment preparation scripts
 sudo apt-get install -y git pandoc libcurl4-openssl-dev
@@ -63,8 +64,6 @@ sudo apt-get install -y locales
 sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-#echo 'export LANG=en_US.UTF-8' >> ~/.bashrc
-#echo 'export LANGUAGE=en_US.UTF-8' >> ~/.bashrc
 
 # Clean the system of packages used for building
 sudo apt-get autoremove -y cabal-install ghc openjdk-7-jdk pandoc libboost-all-dev
